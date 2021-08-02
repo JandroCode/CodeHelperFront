@@ -1,9 +1,11 @@
 $(document).ready(function () {
 
+    const BASE_URL = 'https://codehelperjandrocode.herokuapp.com/';
+
     function listarCategorias(){
         $.ajax({
             type: "get",
-            url: "http://localhost:8080/admin/listado-categorias",
+            url:  BASE_URL+"listado-categorias",
             dataType: "json",
             success: function (res) {
 
@@ -41,7 +43,7 @@ $(document).ready(function () {
     
                 $.ajax({
                     type: "delete",
-                    url: "http://localhost:8080/admin/eliminar/" +idCategoria,
+                    url: BASE_URL+"admin/eliminar/"+idCategoria,
                     success: function (res) {
                         console.log(res)
                         console.log('Categoría eliminada')
@@ -60,7 +62,7 @@ $(document).ready(function () {
 
             $.ajax({
                 type: "get",
-                url: "http://localhost:8080/admin/buscar-categoria/"+ idCategoria,
+                url: BASE_URL+"buscar-categoria/"+ idCategoria,
                 dataType: "json",
                 success: function (res) {
                     $('#nombre_categoria').html(
@@ -86,7 +88,7 @@ $(document).ready(function () {
 
             $.ajax({
                 type: "put",
-                url: "http://localhost:8080/categorias/actualizar/"+idCategoria ,
+                url: BASE_URL+"categorias/actualizar/"+idCategoria ,
                 contentType:'application/json',
                 data:JSON.stringify(data),
                 dataType: "json",

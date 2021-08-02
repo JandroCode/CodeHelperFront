@@ -1,9 +1,11 @@
 $(document).ready(function () {
 
+    const BASE_URL = 'https://codehelperjandrocode.herokuapp.com/';
+
     function listarCategorias(){
         $.ajax({
             type: "get",
-            url: "http://localhost:8080/categorias",
+            url: BASE_URL+"categorias",
             dataType: "json",
             success: function (res) {
                 for(i of res){
@@ -26,7 +28,7 @@ $(document).ready(function () {
           }
 
           $.ajax({
-              url: "http://localhost:8080/categorias/guardar-categoria",
+              url: BASE_URL+"categorias/guardar-categoria",
               type: "post",
               contentType:"application/json",
               data: JSON.stringify(data),
@@ -55,7 +57,7 @@ $(document).ready(function () {
                 if(categoria!=null && textoBuscador != ""){
                     $.ajax({
                         type: "get",
-                        url: "http://localhost:8080/categorias/buscar/" +categoria+'/'+textoBuscador ,
+                        url: BASE_URL+"categorias/buscar/" +categoria+'/'+textoBuscador ,
                         dataType: "json",
                         success: function (res) {
     
@@ -101,7 +103,7 @@ $(document).ready(function () {
 
                 $.ajax({
                     type: "post",
-                    url: "http://localhost:8080/metodos/guardar-metodo/" + idCategoria,
+                    url: BASE_URL+"guardar-metodo/" + idCategoria,
                     contentType:"application/json",
                     data: JSON.stringify(data),
                     dataType: "json",

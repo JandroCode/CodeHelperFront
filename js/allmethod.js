@@ -1,9 +1,11 @@
 $(document).ready(function () {
 
+    const BASE_URL = 'https://codehelperjandrocode.herokuapp.com/';
+
     function getAllMethods(){
         $.ajax({
             type: "get",
-            url: "http://localhost:8080/metodos/lista",
+            url: BASE_URL+"metodos/lista",
             dataType: "json",
             success: function (res) {
                 data = '';
@@ -36,7 +38,7 @@ $(document).ready(function () {
 
             $.ajax({
                 type: "get",
-                url: "http://localhost:8080/metodos/" +idMetodo,
+                url: BASE_URL+"metodos/" +idMetodo,
                 dataType: "json",
                 success: function (res) {
                     $('#modificar_metodo_form').html(
@@ -64,7 +66,7 @@ $(document).ready(function () {
 
             $.ajax({
                 type: "put",
-                url: "http://localhost:8080/metodos/actualizar/"+idMetodo,
+                url: BASE_URL+"metodos/actualizar/"+idMetodo,
                 contentType:'application/json',
                 data:JSON.stringify(data),
                 dataType: "json",
